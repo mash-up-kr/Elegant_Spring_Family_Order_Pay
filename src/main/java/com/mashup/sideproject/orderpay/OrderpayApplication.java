@@ -15,6 +15,6 @@ public class OrderpayApplication {
 
     @GetMapping("/ping")
     public String test(){
-        return "pong";
+        return "pang";
     }
 }
