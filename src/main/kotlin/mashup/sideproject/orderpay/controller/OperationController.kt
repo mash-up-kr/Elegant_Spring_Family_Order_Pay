@@ -1,12 +1,12 @@
-package mashup.sideproject.orderpay
+package mashup.sideproject.orderpay.controller
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class TestController{
+class OperationController{
     @GetMapping("/ping")
     fun ping(): String {
-        return "pongv1"
+        return "pong"
     }
 }
