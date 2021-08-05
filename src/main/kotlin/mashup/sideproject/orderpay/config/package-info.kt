@@ -1,1 +1,0 @@
-package mashup.sideproject.orderpay.config;
