@@ -43,7 +43,7 @@ class WebClientConfig(
             ).build()
     }
 
-    fun createWebClient(host: String): WebClient.Builder {
+    private fun createWebClient(host: String): WebClient.Builder {
         return WebClient.builder()
             .baseUrl(host)
             .defaultHeaders { httpHeaders ->
@@ -52,7 +52,7 @@ class WebClientConfig(
             }
     }
 
-    fun getIamportToken(): IamportResponse<TokenResponseDto> {
+    private fun getIamportToken(): IamportResponse<TokenResponseDto> {
         return tokenWebClient().post()
             .body(BodyInserters.fromFormData(LinkedMultiValueMap<String, String>().apply {
                 this.add(HEADER_ATTRIBUTE_IMP_KEY, iamportApiKey)
