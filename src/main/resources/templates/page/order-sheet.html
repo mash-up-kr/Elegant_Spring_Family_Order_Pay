@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>주문</title>
+
+    <script src="/js/Ajax.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+</head>
+<body>
+<div>
+    배달정보
+    <ul>
+        <li><span>주소주소주소</span></li>
+        <li><input type="text"/></li>
+        <li><span>010-1234-1234</span><span>변경</span></li>
+    </ul>
+</div>
+<div>요청사항</div>
+<div>결제수단</div>
+<div>
+    결제
+    <ul>
+        <li><span>결제금액</span></li>
+        <li><span>주문금액</span></li>
+        <li><span>총 결제금액</span></li>
+    </ul>
+</div>
+<button id="btn_order">주문하기</button>
+<script th:src="@{~/js/OrderService.js}"></script>
+<script>
+    let orderService = new OrderService('btn_order')
+    $('#btn_order').click(() => {
+        orderService.iamportOrder("a, b")
+    })
+</script>
+</body>
+</html>

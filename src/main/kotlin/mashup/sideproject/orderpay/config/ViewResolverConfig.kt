@@ -31,6 +31,7 @@ class ViewResolverConfig(private val context: ApplicationContext) : WebMvcConfig
     @Bean
     fun thymeleafViewResolver() = ThymeleafViewResolver().apply {
         this.templateEngine = thymeleafTemplateEngine()
+        this.characterEncoding = Charsets.UTF_8.name()
     }
 
     override fun configureViewResolvers(registry: ViewResolverRegistry) {
