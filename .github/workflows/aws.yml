@@ -33,12 +33,18 @@ jobs:
       - name: Grant execute permission for gradlew
         run: |
           chmod +x gradlew
-      - name: Properties 파일에 mongodb uri 주입
+      - name: Properties 파일에 redis password 주입
         uses: christian-draeger/write-properties@1.0.1
         with:
           path: './src/main/resources/application.properties'
           property: 'spring.redis.password'
           value: ${{ secrets.spring_redis_password }}
+      - name: Properties 파일에 redis host 주입
+        uses: christian-draeger/write-properties@1.0.1
+        with:
+          path: './src/main/resources/application.properties'
+          property: 'spring.redis.host'
+          value: '127.0.0.1'
       - name: Build with Gradle test
         run: ./gradlew test
       - name: Publish Test Results
