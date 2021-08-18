@@ -9,6 +9,7 @@ import mashup.sideproject.orderpay.model.repository.OrderRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 @Service
 class OrderService(private val orderRepository: OrderRepository) {
@@ -30,23 +31,7 @@ class OrderService(private val orderRepository: OrderRepository) {
     }
 
     private fun createMerchantUid(order: Order): String {
-        val count = orderRepository.count()
-        return "ORD-" +
-                order.createdAt?.format(DateTimeFormatter.ofPattern("yyyyMMdd")).toString() +
-                "-" + count.toString().padStart(6, '0')
-    }
-
-    private fun CharSequence.padStart(length: Int, padChar: Char = ' '): CharSequence {
-        if (length < 0)
-            throw IllegalArgumentException("Desired length $length is less than zero.")
-        if (length <= this.length)
-            return this.subSequence(0, this.length)
-
-        val sb = StringBuilder(length)
-        for (i in 1..(length - this.length))
-            sb.append(padChar)
-        sb.append(this)
-        return sb
+        return "ORD-${order.createdAt?.format(DateTimeFormatter.ofPattern("yyyyMMdd"))}-${UUID.randomUUID()}"
     }
 
     @Transactional(readOnly = true)
