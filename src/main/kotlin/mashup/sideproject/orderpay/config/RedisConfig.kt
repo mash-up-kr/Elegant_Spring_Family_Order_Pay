@@ -12,17 +12,14 @@ import org.springframework.data.redis.serializer.StringRedisSerializer
 
 @Configuration
 @EnableRedisRepositories
-class RedisConfig {
-    @Value("\${spring.redis.host}")
-    private val redisHost: String? = null
-
-    @Value("\${spring.redis.port}")
-    private val redisPort: Int = 0
-
-    @Value("\${spring.redis.password}")
-    private val redisPassword: String? = null
-
-    @Bean()
+class RedisConfig(@Value("\${spring.redis.host}")
+                  private val redisHost: String? = null,
+                  @Value("\${spring.redis.port}")
+                  private val redisPort: Int = 6379,
+                  @Value("\${spring.redis.password}")
+                  private val redisPassword: String? = null
+) {
+    @Bean
     fun jedisConnectionFactory(): JedisConnectionFactory {
 
         val redisStandaloneConfiguration = RedisStandaloneConfiguration(redisHost!!, redisPort)
@@ -31,10 +28,10 @@ class RedisConfig {
         return JedisConnectionFactory(redisStandaloneConfiguration)
     }
 
-    @Bean("redisTemplateWithJedis")
+    @Bean
     fun redisTemplateWithJedis(
 
-    ): RedisTemplate<*, *> {
+    ): RedisTemplate<String, Any> {
 
         val template = RedisTemplate<String, Any>()
         template.keySerializer = StringRedisSerializer()
