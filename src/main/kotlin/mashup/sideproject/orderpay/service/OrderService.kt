@@ -2,8 +2,8 @@ package mashup.sideproject.orderpay.service
 
 import mashup.sideproject.orderpay.exception.ErrorCode
 import mashup.sideproject.orderpay.exception.OrderPayException
-import mashup.sideproject.orderpay.model.dto.OrderRequestDto
-import mashup.sideproject.orderpay.model.dto.OrderResponseDto
+import mashup.sideproject.orderpay.model.dto.order.OrderRequestDto
+import mashup.sideproject.orderpay.model.dto.order.OrderResponseDto
 import mashup.sideproject.orderpay.model.entity.Order
 import mashup.sideproject.orderpay.model.repository.OrderRepository
 import org.springframework.stereotype.Service

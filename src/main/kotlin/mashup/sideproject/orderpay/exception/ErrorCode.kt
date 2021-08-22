@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus
 enum class ErrorCode(val httpStatus: Int, val description: String) {
     INVALID_TOKEN(HttpStatus.UNAUTHORIZED.value(), "인증 Token이 전달되지 않았거나 유효하지 않습니다."),
     INVALID_IMP_UID(HttpStatus.NOT_FOUND.value(), "유효하지 않은 imp_uid 입니다."),
-    ORDER_NOT_FOUND(404, "Order Not Found"),
+    ORDER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Order Not Found"),
 
     // Common
     INVALID_INPUT_VALUE(HttpStatus.BAD_REQUEST.value(), "Invalid Input Value"),

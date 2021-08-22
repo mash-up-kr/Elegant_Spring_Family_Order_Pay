@@ -5,7 +5,6 @@ class OrderService {
     }
 
     iamportOrder(a, b) {
-        let orderDto = {aa: "testA", bb: "testB"}
         let merchant_uid = "testUid"
         let thisObj = this
         IMP.request_pay({ // param

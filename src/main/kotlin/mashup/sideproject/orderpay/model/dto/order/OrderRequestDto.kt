@@ -1,6 +1,8 @@
 package mashup.sideproject.orderpay.model.dto.order
 
+import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
+
 data class OrderRequestDto(
-    val aa: String,
-    val bb: String
-)
+    val productIdList: List<Long> = ArrayList(),
+    val optionIdList: List<Long> = ArrayList()
+) : BaseDto

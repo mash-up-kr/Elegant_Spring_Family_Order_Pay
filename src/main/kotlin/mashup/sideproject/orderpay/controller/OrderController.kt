@@ -1,7 +1,7 @@
 package mashup.sideproject.orderpay.controller
 
-import mashup.sideproject.orderpay.model.dto.OrderRequestDto
-import mashup.sideproject.orderpay.model.dto.OrderResponseDto
+import mashup.sideproject.orderpay.model.dto.order.OrderRequestDto
+import mashup.sideproject.orderpay.model.dto.order.OrderResponseDto
 import mashup.sideproject.orderpay.service.OrderService
 import org.springframework.web.bind.annotation.*
 
