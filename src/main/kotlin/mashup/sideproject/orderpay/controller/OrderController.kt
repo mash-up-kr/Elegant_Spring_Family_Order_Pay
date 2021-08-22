@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class OrderController(private val orderService: OrderService) {
     @PostMapping
-    fun requestOrder(@RequestBody orderDto: OrderRequestDto): OrderResponseDto? {
+    fun requestOrder(@RequestBody orderDto: OrderRequestDto): OrderResponseDto {
         return orderService.acceptOrder(orderDto)
     }
 
     @GetMapping
-    fun getOrder(@RequestParam merchantUid: String): OrderResponseDto? {
+    fun getOrder(@RequestParam merchantUid: String): OrderResponseDto {
         return orderService.getOrder(merchantUid)
     }
 }
