@@ -1,24 +1,20 @@
 package mashup.sideproject.orderpay.controller
 
-import mashup.sideproject.orderpay.infrastructure.OpLogger
-import mashup.sideproject.orderpay.model.dto.order.OrderRequestDto
-import mashup.sideproject.orderpay.model.dto.order.OrderResponseDto
+import mashup.sideproject.orderpay.model.dto.OrderRequestDto
+import mashup.sideproject.orderpay.model.dto.OrderResponseDto
 import mashup.sideproject.orderpay.service.OrderService
-import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
+@RequestMapping(value = ["/api/v1/order"])
 @RestController
-@RequestMapping(value = ["/order"], produces = [MediaType.APPLICATION_JSON_VALUE])
 class OrderController(private val orderService: OrderService) {
-
-    companion object : OpLogger
-
     @PostMapping
-    fun order(@RequestBody orderRequestDto: OrderRequestDto): OrderResponseDto {
-        return orderService.order(orderRequestDto)
+    fun requestOrder(@RequestBody orderDto: OrderRequestDto): OrderResponseDto? {
+        return orderService.acceptOrder(orderDto)
     }
 
+    @GetMapping
+    fun getOrder(@RequestParam merchantUid: String): OrderResponseDto? {
+        return orderService.getOrder(merchantUid)
+    }
 }
