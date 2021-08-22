@@ -6,15 +6,14 @@ class OrderService {
 
     iamportOrder(a, b) {
         let orderDto = {aa: "testA", bb: "testB"}
-        let merchant_uid = order(orderDto)
-        console.log(merc)
+        let merchant_uid = "testUid"
         let thisObj = this
         IMP.request_pay({ // param
             pg: thisObj.constructor.PG_NAME,
             pay_method: "card",
             merchant_uid: merchant_uid,
             name: "노르웨이 회전 의자",
-            amount: 64900,
+            amount: 1000,
             buyer_email: "gildong@gmail.com",
             buyer_name: "홍길동",
             buyer_tel: "010-4242-4242",
