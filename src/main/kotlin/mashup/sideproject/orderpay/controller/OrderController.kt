@@ -1,7 +1,7 @@
 package mashup.sideproject.orderpay.controller
 
-import mashup.sideproject.orderpay.model.dto.OrderRequestDto
-import mashup.sideproject.orderpay.model.dto.OrderResponseDto
+import mashup.sideproject.orderpay.model.dto.order.OrderRequestDto
+import mashup.sideproject.orderpay.model.dto.order.OrderResponseDto
 import mashup.sideproject.orderpay.service.OrderService
 import org.springframework.web.bind.annotation.*
 
@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*
 @RestController
 class OrderController(private val orderService: OrderService) {
     @PostMapping
-    fun requestOrder(@RequestBody orderDto: OrderRequestDto): OrderResponseDto? {
+    fun requestOrder(@RequestBody orderDto: OrderRequestDto): OrderResponseDto {
         return orderService.acceptOrder(orderDto)
     }
 
     @GetMapping
-    fun getOrder(@RequestParam merchantUid: String): OrderResponseDto? {
+    fun getOrder(@RequestParam merchantUid: String): OrderResponseDto {
         return orderService.getOrder(merchantUid)
     }
 }
