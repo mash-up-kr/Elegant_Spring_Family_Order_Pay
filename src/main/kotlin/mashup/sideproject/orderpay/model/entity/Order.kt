@@ -5,6 +5,7 @@ import javax.persistence.*
 
 
 @Entity
+@Table(name = "orderrecord")
 data class Order(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

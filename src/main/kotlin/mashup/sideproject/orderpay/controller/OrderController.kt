@@ -23,7 +23,7 @@ class OrderController(
         return orderRedisService.getOrder(merchantUid)
     }
 
-    @PostMapping
+    @PostMapping("/submit")
     fun submitOrder(@RequestBody submitDto: OrderSubmitRequestDto) {
         val orderRedisDto = orderRedisService.getOrder(submitDto.merchantUid)
         orderService.saveOrder(submitDto, orderRedisDto)
