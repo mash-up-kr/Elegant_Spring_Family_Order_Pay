@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest
-@ActiveProfiles(value = ["local", "test"])
+@ActiveProfiles(value = ["test"])
 internal class IamportRequesterTest {
     @Autowired
     lateinit var iamportRequester: IamportRequester

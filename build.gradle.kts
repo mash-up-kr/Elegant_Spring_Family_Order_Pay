@@ -33,6 +33,7 @@ dependencies {
     kapt("org.springframework.boot:spring-boot-configuration-processor")
     kapt("org.mapstruct:mapstruct-processor:1.4.1.Final")
     runtimeOnly ("mysql:mysql-connector-java")
+    runtimeOnly ("com.h2database:h2")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
