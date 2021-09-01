@@ -1,6 +1,8 @@
 package mashup.sideproject.orderpay.model.entity
 
+import mashup.sideproject.orderpay.support.OrderConverter
 import javax.persistence.*
+
 
 @Entity
 data class Order(
@@ -23,9 +25,9 @@ data class Order(
     @Embedded
     var buyerInfo: BuyerInfo? = null,
 
-    //jpa converter
-    var productIdList: String? = null,
+    @Convert(converter = OrderConverter::class)
+    var productIdList: List<Long>,
 
-    //jpa converter
-    var optionIdList: String? = null
+    @Convert(converter = OrderConverter::class)
+    var optionIdList: List<Long>
 ) : BaseEntity()
