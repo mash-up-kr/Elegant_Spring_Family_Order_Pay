@@ -45,6 +45,12 @@ jobs:
           path: './src/main/resources/application.properties'
           property: 'spring.redis.host'
           value: '127.0.0.1'
+      - name: Properties 파일에 mysql password 주입
+        uses: christian-draeger/write-properties@1.0.1
+        with:
+          path: './src/main/resources/application-local.properties'
+          property: 'spring.datasource.password'
+          value: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
       - name: Build with Gradle test
         run: ./gradlew test
       - name: Publish Test Results
