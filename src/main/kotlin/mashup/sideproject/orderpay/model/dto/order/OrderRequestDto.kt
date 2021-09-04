@@ -4,5 +4,7 @@ import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
 
 data class OrderRequestDto(
     val productIdList: List<Long> = ArrayList(),
-    val optionIdList: List<Long> = ArrayList()
+    val optionIdList: List<Long> = ArrayList(),
+    val accountId: Long,
+    val totalMoney: Int
 ) : BaseDto

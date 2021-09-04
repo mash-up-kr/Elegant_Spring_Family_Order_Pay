@@ -1,18 +1,34 @@
 package mashup.sideproject.orderpay.model.entity
 
-import org.springframework.data.annotation.Id
-import org.springframework.data.redis.core.RedisHash
-import org.springframework.data.redis.core.index.Indexed
-import java.io.Serializable
-import java.time.LocalDateTime
+import mashup.sideproject.orderpay.support.OrderConverter
+import javax.persistence.*
 
-@RedisHash("order")
+
+@Entity
+@Table(name = "orderrecord")
 data class Order(
     @Id
-    val id: String? = null,
-    var productIdList: List<Long> = ArrayList(),
-    var optionIdList: List<Long> = ArrayList(),
-    @Indexed
-    var merchantUid: String? = null,
-    val createdAt: LocalDateTime = LocalDateTime.now()
-) : Serializable
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long? = null,
+
+    val impUid: String? = null,
+
+    val merchantUid: String? = null,
+
+    val payMethod: String? = null,
+
+    val paidAmount: Int? = null,
+
+    val name: String? = null,
+
+    val paidAt: Long? = null,
+
+    @Embedded
+    var buyerInfo: BuyerInfo? = null,
+
+    @Convert(converter = OrderConverter::class)
+    var productIdList: List<Long>,
+
+    @Convert(converter = OrderConverter::class)
+    var optionIdList: List<Long>
+) : BaseEntity()
