@@ -1,8 +1,9 @@
 package mashup.sideproject.orderpay.model.dto.iamport.payments
 
 import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
+import java.math.BigDecimal
 
-data class PaymentsResponseDto(
+data class PaymentAnnotation(
     val impUid: String,
     val merchantUid: String,
     val payMethod: String?,
@@ -27,8 +28,8 @@ data class PaymentsResponseDto(
     val vbankDate: Int?,
     val vbankIssued_at: Int?,
     val name: String?,
-    val amount: Int,
-    val cancelAmount: Int,
+    val amount: BigDecimal,
+    val cancelAmount: BigDecimal,
     val currency: String,
     val buyerName: String?,
     val buyerEmail: String?,
@@ -53,7 +54,7 @@ data class PaymentsResponseDto(
 ) : BaseDto {
     data class PaymentCancelAnnotation(
         val pgTid: String,
-        val amount: Int,
+        val amount: BigDecimal,
         val cancelledAt: Int,
         val reason: String,
         val receiptUrl: String?

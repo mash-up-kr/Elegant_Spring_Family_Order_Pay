@@ -4,12 +4,14 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import org.springframework.data.redis.core.index.Indexed
 import java.io.Serializable
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @RedisHash("order")
 data class Order(
     @Id
     val id: String? = null,
+    val amount: BigDecimal,
     var productIdList: List<Long> = ArrayList(),
     var optionIdList: List<Long> = ArrayList(),
     @Indexed

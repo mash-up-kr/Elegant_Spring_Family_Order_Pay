@@ -19,7 +19,7 @@ internal class IamportRequesterTest {
     @Test
     @DisplayName("결제내역 확인")
     fun requestPayments() {
-        val paymentsResponse = iamportRequester.requestPayments("imp_415921100266")
+        val paymentsResponse = iamportRequester.requestPayment("imp_415921100266")
         assertNotNull(paymentsResponse.response)
         log.debug("response -> ${paymentsResponse.response}")
     }
