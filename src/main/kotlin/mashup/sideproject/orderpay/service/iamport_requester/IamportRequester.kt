@@ -39,8 +39,8 @@ class IamportRequester(private val iamportWebClient: WebClient) {
             .block()!!
     }
 
-    fun requestPaymentCancel(paymentCancelRequestDto: PaymentCancelRequestDto) {
-        iamportWebClient.post()
+    fun requestPaymentCancel(paymentCancelRequestDto: PaymentCancelRequestDto): IamportResponse<PaymentAnnotation> {
+        return iamportWebClient.post()
             .uri(CANCEL_API_URL)
             .body(BodyInserters.fromValue(paymentCancelRequestDto))
             .retrieve()

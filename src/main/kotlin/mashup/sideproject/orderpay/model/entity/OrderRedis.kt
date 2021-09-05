@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import org.springframework.data.redis.core.index.Indexed
 import java.io.Serializable
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
 @RedisHash(value = "order", timeToLive = 900)
@@ -13,7 +14,7 @@ data class OrderRedis(
 
     val accountId: Long,
 
-    val totalMoney: Int,
+    val amount: BigDecimal,
 
     var productIdList: List<Long> = ArrayList(),
 

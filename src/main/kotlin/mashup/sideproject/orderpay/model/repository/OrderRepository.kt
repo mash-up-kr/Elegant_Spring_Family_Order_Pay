@@ -4,4 +4,5 @@ import mashup.sideproject.orderpay.model.entity.Order
 import org.springframework.data.repository.CrudRepository
 
 interface OrderRepository : CrudRepository<Order, Long> {
+    fun findByMerchantUid(merchantUid: String): Order?
 }

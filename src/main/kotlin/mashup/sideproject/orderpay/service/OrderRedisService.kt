@@ -19,7 +19,7 @@ class OrderRedisService(private val orderRedisRepository: OrderRedisRepository) 
             optionIdList = orderDto.optionIdList,
             productIdList = orderDto.productIdList,
             accountId = orderDto.accountId,
-            totalMoney = orderDto.totalMoney
+            amount = orderDto.amount
         )
         order.merchantUid = createMerchantUid(order)
         orderRedisRepository.save(order)
