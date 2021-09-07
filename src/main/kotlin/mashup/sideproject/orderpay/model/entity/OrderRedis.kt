@@ -1,5 +1,6 @@
 package mashup.sideproject.orderpay.model.entity
 
+import mashup.sideproject.orderpay.model.enums.PayStatus
 import org.springframework.data.annotation.Id
 import org.springframework.data.redis.core.RedisHash
 import org.springframework.data.redis.core.index.Indexed
@@ -11,6 +12,8 @@ import java.time.LocalDateTime
 data class OrderRedis(
     @Id
     val id: String? = null,
+
+    val payStatus: PayStatus,
 
     val accountId: Long,
 

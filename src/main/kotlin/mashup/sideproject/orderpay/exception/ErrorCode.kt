@@ -8,7 +8,7 @@ enum class ErrorCode(val httpStatus: Int, val description: String) {
     INVALID_TOKEN(HttpStatus.UNAUTHORIZED.value(), "인증 Token이 전달되지 않았거나 유효하지 않습니다."),
     INVALID_IMP_UID(HttpStatus.NOT_FOUND.value(), "유효하지 않은 imp_uid 입니다."),
     ORDER_NOT_FOUND(HttpStatus.NOT_FOUND.value(), "Order Not Found"),
-    ALREADY_PAID_ORDER(HttpStatus.BAD_REQUEST.value(), "이미 결제된 건"),
+    ALREADY_PROCESSED_ORDER(HttpStatus.BAD_REQUEST.value(), "이미 처리된 건"),
     FORGED_PAYMENT(HttpStatus.BAD_REQUEST.value(), "위조된 결제건 입니다."),
 
     // Common

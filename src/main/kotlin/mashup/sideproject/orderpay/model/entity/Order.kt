@@ -1,5 +1,6 @@
 package mashup.sideproject.orderpay.model.entity
 
+import mashup.sideproject.orderpay.model.enums.PayStatus
 import mashup.sideproject.orderpay.support.OrderConverter
 import javax.persistence.*
 
@@ -10,18 +11,15 @@ data class Order(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
+    val accountId: Long,
+    val impUid: String,
+    val merchantUid: String,
+    var payStatus: PayStatus,
+    val payMethod: String,
+    val paidAmount: Int,
+    val name: String,
 
-    val impUid: String? = null,
-
-    val merchantUid: String? = null,
-
-    val payMethod: String? = null,
-
-    val paidAmount: Int? = null,
-
-    val name: String? = null,
-
-    val paidAt: Long? = null,
+    var paidAt: Int? = null,
 
     @Embedded
     var buyerInfo: BuyerInfo? = null,
@@ -31,4 +29,10 @@ data class Order(
 
     @Convert(converter = OrderConverter::class)
     var optionIdList: List<Long>
-) : BaseEntity()
+) : BaseEntity() {
+    companion object {
+        fun of(orderRedis: OrderRedis): Order {
+            return Order(productIdList = orderRedis.productIdList, optionIdList = orderRedis.optionIdList)
+        }
+    }
+}

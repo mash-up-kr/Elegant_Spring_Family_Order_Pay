@@ -1,6 +1,6 @@
 package mashup.sideproject.orderpay.model.dto.iamport.payments
 
-import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
+import mashup.sideproject.orderpay.model.dto.BaseDto
 import java.math.BigDecimal
 
 data class PaymentCancelRequestDto(
@@ -15,3 +15,7 @@ data class PaymentCancelRequestDto(
     val refundAccount: String? = null, // 환분계좌 계좌 번호
     val refundTel: String? = null // 환불계좌 예금주 연락처
 ) : BaseDto
+
+enum class CancelReason(val description: String) {
+    MERCHANT_ERROR("가맹점 결제 오류")
+}

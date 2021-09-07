@@ -1,6 +1,6 @@
 package mashup.sideproject.orderpay.model.dto.iamport.payments
 
-import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
+import mashup.sideproject.orderpay.model.dto.BaseDto
 import java.math.BigDecimal
 
 data class PaymentAnnotation(

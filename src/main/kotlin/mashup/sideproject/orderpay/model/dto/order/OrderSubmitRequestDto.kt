@@ -1,6 +1,6 @@
 package mashup.sideproject.orderpay.model.dto.order
 
-import mashup.sideproject.orderpay.model.dto.iamport.BaseDto
+import mashup.sideproject.orderpay.model.dto.BaseDto
 
 data class OrderSubmitRequestDto (
     val impUid: String? = null,
